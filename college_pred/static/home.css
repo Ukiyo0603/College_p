@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main h1{
+    height: 60vh;
+    width: 180vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 500;
+    background-image: url('background_image.jpeg');
+    background-repeat: no-repeat;
+    color: white;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#Btn{
+    height: 100%;
+    width: 180vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-style: none;
+    background-color: white;
+    padding: 10vh 0;
+    text-decoration: none;
+    color: black;
+}
+

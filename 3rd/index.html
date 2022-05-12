@@ -1,0 +1,13 @@
+{% extends 'layouts.html'%}
+{% block static%}
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'layout.css', rel='stylesheet', type='text/css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'main.css', rel='stylesheet', type='text/css')}}">
+{% endblock static %}
+{% block content %}
+    <section class="hero">
+        <h1>COLLEGE PREDICTOR</h1>
+        <div class="predict">
+            <a href="#"><button id="predict-button">Click here to Predict</button></a>
+        </div>
+    </section>
+{% endblock content %}

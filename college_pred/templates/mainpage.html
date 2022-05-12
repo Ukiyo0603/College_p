@@ -1,0 +1,73 @@
+{% extends 'layouts.html'%}
+{% block static%}
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'signup.css', rel='stylesheet', type='text/css')}}">
+{% endblock static %}
+{% block content %}
+    <div>
+        <form method="GET" action='{{ url_for("result")}}' >
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <h4 class="signupword">Information</h4>
+                    <div class="textBox">
+                        {{ form.percentile.label(class="form-control-label")}}
+                        {% if form.percentile.errors %}
+                            {{ form.percentile.label(class="form-control-label is-invalid ")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.percentile.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.percentile(class="form-control form-control-lg")}}
+                        {% endif %}
+                              
+                    </div>
+                    <div class="textBox">
+                        {{ form.category.label(class="form-control-label")}}
+                        {% if form.category.errors %}
+                            {{ form.category(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.category.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.category(class="form-control form-control-lg")}}
+                        {% endif %}
+                              
+                    </div>
+                    <div class="textBox">
+                        {{ form.cllgpref.label(class="form-control-label")}}
+                        {% if form.cllgpref.errors %}
+                            {{ form.cllgpref(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.cllgpref.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.cllgpref(class="form-control form-control-lg")}}
+                        {% endif %}
+                    </div>
+                    <div class="textBox">
+                        {{ form.branch.label(class="form-control-label")}}
+                        {% if form.branch.errors %}
+                            {{ form.branch(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.branch.errors %}
+                                <span>{{ error}}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.branch(class="form-control form-control-lg")}}
+                        {% endif%}
+                    </div>
+                    <div>
+                        {{ form.submit(class="signupBtn")}}
+                    </div>
+                    
+            </fieldset>
+            
+        </form>
+    </div>
+{% endblock content %}

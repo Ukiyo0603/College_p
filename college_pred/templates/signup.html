@@ -1,0 +1,76 @@
+{% extends 'layouts.html'%}
+{% block static%}
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'signup.css', rel='stylesheet', type='text/css')}}">
+{% endblock static %}
+{% block content %}
+    <div>
+        <form method="POST" action="" >
+            {{ form.hidden_tag() }}
+            <!-- Signup Form: takes input from the user to create an account (used flask syntax for this) -->
+            <fieldset class="form-group">
+                <h4 class="signupword">Join Today</h4>
+                    <div class="textBox">
+                        {{ form.username.label(class="form-control-label")}}
+                        {% if form.username.errors %}
+                            {{ form.username.label(class="form-control-label is-invalid ")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.username.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class="form-control form-control-lg")}}
+                        {% endif %}
+                              
+                    </div>
+                    <div class="textBox">
+                        {{ form.email.label(class="form-control-label")}}
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg")}}
+                        {% endif %}
+                              
+                    </div>
+                    <div class="textBox">
+                        {{ form.password.label(class="form-control-label")}}
+                        {% if form.password.errors %}
+                            {{ form.password(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class="form-control form-control-lg")}}
+                        {% endif %}
+                    </div>
+                    <div class="textBox">
+                        {{ form.confirmPassword.label(class="form-control-label")}}
+                        {% if form.confirmPassword.errors %}
+                            {{ form.confirmPassword(class="form-control form-control-lg is-invalid")}}
+                            <div class="invalid-feedback">
+                                {% for error in form.confirmPassword.errors %}
+                                <span>{{ error}}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirmPassword(class="form-control form-control-lg")}}
+                        {% endif%}
+                    </div>
+                    <div>
+                        {{ form.submit(class="signupBtn")}}
+                    </div>
+                    <div class="border-top pt-3">
+                        Already Have An Account?<a href="{{ url_for('login')}}" class="ml-2">Sign In</a>
+                    </div>
+            </fieldset>
+            
+        </form>
+    </div>
+{% endblock content %}
