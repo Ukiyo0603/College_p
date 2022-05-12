@@ -24,9 +24,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route("/feature")
+@app.route("/feature", methods = ['GET'])
 def feature():
-    return render_template('feature.html')
+    return render_template('features.html')
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -42,7 +42,7 @@ def login():
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user,remember= form.remember.data)
             flash('You have been logged In!', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('mainpage'))
         else:
             flash('Login Unsuccessful!', 'danger')
     return render_template('login.html', title = 'Log In', form = form)
